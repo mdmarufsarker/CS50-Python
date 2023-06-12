@@ -18,3 +18,10 @@ print(f"x ** y = {x ** y}")
 # x // y = 0
 # x % y = 4
 # x ** y = 16384
+
+
+# print like this 43,278,177.00
+m = float(input("m: "))
+n = float(input("n: "))
+ans = m + n
+print(f"{m} + {n} = {ans:,.2f}")
