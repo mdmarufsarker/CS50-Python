@@ -17,13 +17,16 @@ with open("cps.csv") as file:
             "discordHandle": row["Discord User Name"]
         }
         students.append(student)
+        # I can also do this: students.append(row) directly
+        # In this case I have to ensure that the keys are same as the column names in the csv file
 
 while True:
     print("\nCPS Academy")
     print("-----------")
     print("1. Search for name, email, contact, university")
     print("2. Search for fbProfile, cfHandle, vjudgeHandle, hackerrankHandle, discordHandle")
-    print("3. Exit")
+    print("3. Search for everything")
+    print("4. Exit")
     print("Enter your choice: ", end="")
     choice = int(input())
 
@@ -32,16 +35,24 @@ while True:
             print("Enter user email: ", end="")
             search = input()
             for student in students:
-                if search in student["Name"] or search in student["Email"] or search in student["Contact"] or search in student["University"]:
+                if search in student["Email"]:
                     # print each details on new line
-                    print(f"Name: {student['Name']}\nEmail: {student['Email']}\nContact: {student['Contact']}\nUniversity: {student['University']}\n")
+                    print(f"\nName: {student['Name']}\nEmail: {student['Email']}\nContact: {student['Contact']}\nUniversity: {student['University']}\n")
         case 2:
             print("Enter user email: ", end="")
             search = input()
             for student in students:
-                if search in student["Name"] or search in student["Email"] or search in student["Contact"] or search in student["University"]:
-                    print(f"Facebook Profile: {student['fbProfile']}\nCodeforces Handle: {student['cfHandle']}\nVjudge Handle: {student['vjudgeHandle']}\nHackerrank Handle: {student['hackerrankHandle']}\nDiscord Handle: {student['discordHandle']}\n")
+                if search in student["Email"]:
+                    print(f"\nFacebook Profile: {student['fbProfile']}\nCodeforces Handle: {student['cfHandle']}\nVjudge Handle: {student['vjudgeHandle']}\nHackerrank Handle: {student['hackerrankHandle']}\nDiscord Handle: {student['discordHandle']}\n")
         case 3:
+            print("Enter user email: ", end="")
+            search = input()
+
+            for student in students:
+                if search in student["Email"]:
+                    print(f"\nName: {student['Name']}\nEmail: {student['Email']}\nContact: {student['Contact']}\nUniversity: {student['University']}\nFacebook Profile: {student['fbProfile']}\nCodeforces Handle: {student['cfHandle']}\nVjudge Handle: {student['vjudgeHandle']}\nHackerrank Handle: {student['hackerrankHandle']}\nDiscord Handle: {student['discordHandle']}\n")
+        case 4:
+            print("\nThank you for using this program!")
             exit(0)
         case _:
             print("Invalid choice!")
