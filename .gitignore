@@ -1,4 +1,5 @@
-cps.csv
+CPS
+tmp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
